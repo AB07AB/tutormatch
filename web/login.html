@@ -20,7 +20,15 @@
 <script>
 document.getElementById('login-form').addEventListener('submit', function(e){
   e.preventDefault();
-  alert('Login submitted (demo only).');
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const teachers = JSON.parse(localStorage.getItem('teachersExtra') || '[]');
+  const found = teachers.find(t => t.email === email && t.password === password);
+  if(found){
+    alert('Login successful!');
+  } else {
+    alert('Invalid credentials.');
+  }
   this.reset();
 });
 </script>

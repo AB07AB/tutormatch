@@ -41,16 +41,27 @@ function renderTable(data){
     tableBody.appendChild(tr);
   });
 }
-fetch('teachers.json').then(r=>r.json()).then(data=>{
-  teachers=data;
-  const subjects = new Set();
-  data.forEach(t => t.subjects.split(',').forEach(s=>subjects.add(s.trim())));
-  const subjectSelect = document.getElementById('subject-filter');
-  subjects.forEach(s => {
-    const opt=document.createElement('option'); opt.value=s; opt.textContent=s; subjectSelect.appendChild(opt);
+function loadTeachers(){
+  fetch('teachers.json').then(r=>r.json()).then(data=>{
+    const extra = JSON.parse(localStorage.getItem('teachersExtra') || '[]').map(t => ({
+      name: t.name,
+      subjects: t.subjects,
+      hourly_rate: t.hourly_rate,
+      school: t.school,
+      qualifications: t.qualifications,
+      email: t.email
+    }));
+    teachers = data.concat(extra);
+    const subjects = new Set();
+    teachers.forEach(t => t.subjects.split(',').forEach(s=>subjects.add(s.trim())));
+    const subjectSelect = document.getElementById('subject-filter');
+    subjects.forEach(s => {
+      const opt=document.createElement('option'); opt.value=s; opt.textContent=s; subjectSelect.appendChild(opt);
+    });
+    renderTable(teachers);
   });
-  renderTable(teachers);
-});
+}
+loadTeachers();
 document.getElementById('apply-btn').addEventListener('click', ()=>{
   const subject = document.getElementById('subject-filter').value;
   const rate = parseFloat(document.getElementById('rate-filter').value);

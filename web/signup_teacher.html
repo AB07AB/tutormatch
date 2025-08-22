@@ -17,6 +17,7 @@
       <div><input type="text" id="qualifications" placeholder="Qualifications"></div>
       <div><input type="text" id="school" placeholder="School"></div>
       <div><input type="email" id="email" placeholder="Email" required></div>
+      <div><input type="password" id="password" placeholder="Password" required></div>
       <div class="mt-10"><button class="btn primary-btn" type="submit">Submit</button></div>
     </form>
     <div class="mt-20"><a class="back-link" href="index.html">&larr; Back</a></div>
@@ -24,8 +25,21 @@
 <script>
 document.getElementById('signup-form').addEventListener('submit', function(e){
   e.preventDefault();
-  alert('Sign up submitted (demo only).');
+  const teacher = {
+    name: document.getElementById('name').value.trim(),
+    subjects: document.getElementById('subjects').value.trim(),
+    hourly_rate: parseFloat(document.getElementById('hourly_rate').value),
+    qualifications: document.getElementById('qualifications').value.trim(),
+    school: document.getElementById('school').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    password: document.getElementById('password').value
+  };
+  const teachers = JSON.parse(localStorage.getItem('teachersExtra') || '[]');
+  teachers.push(teacher);
+  localStorage.setItem('teachersExtra', JSON.stringify(teachers));
+  alert('Sign up successful! You can now log in.');
   this.reset();
+  window.location.href = 'login.html';
 });
 </script>
 </body>
