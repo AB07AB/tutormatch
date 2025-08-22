@@ -1,0 +1,50 @@
+<ui>
+  <screen name="WelcomeScreen">
+    <component type="Frame" id="main_frame">
+      <component type="Label" id="title_label" text="Welcome to TutorMatch"/>
+      <component type="Button" id="login_button" text="Login"/>
+      <component type="Button" id="signup_button" text="Sign Up"/>
+    </component>
+  </screen>
+
+  <screen name="LoginScreen">
+    <component type="Frame" id="main_frame">
+      <component type="Label" id="title_label" text="Login"/>
+      <component type="Entry" id="email_entry" label="Email"/>
+      <component type="Entry" id="password_entry" label="Password" password="true"/>
+      <component type="Button" id="login_button" text="Login"/>
+      <component type="Button" id="back_button" text="Back"/>
+    </component>
+  </screen>
+
+  <screen name="StudentDashboard">
+    <component type="Frame" id="main_frame">
+      <component type="Label" id="title_label" text="Student Dashboard"/>
+      <component type="Treeview" id="teacher_list" columns="Name,Subjects,Hourly Rate,School"/>
+      <component type="Button" id="filter_button" text="Apply Filters"/>
+      <component type="Button" id="reset_button" text="Reset Filters"/>
+    </component>
+  </screen>
+
+  <screen name="TeacherDetails">
+    <component type="Frame" id="main_frame">
+      <component type="Label" id="name_label" text="Teacher Name"/>
+      <component type="Label" id="school_label" text="School"/>
+      <component type="Label" id="rate_label" text="Hourly Rate"/>
+      <component type="Label" id="qualifications_label" text="Qualifications"/>
+      <component type="Button" id="back_button" text="Back"/>
+    </component>
+  </screen>
+
+  <screen name="EditProfile">
+    <component type="Frame" id="main_frame">
+      <component type="Label" id="title_label" text="Edit Profile"/>
+      <component type="Entry" id="name_entry" label="Name"/>
+      <component type="Entry" id="school_entry" label="School"/>
+      <component type="Entry" id="rate_entry" label="Hourly Rate"/>
+      <component type="Text" id="qualifications_text" label="Qualifications"/>
+      <component type="Button" id="save_button" text="Save"/>
+      <component type="Button" id="undo_button" text="Undo"/>
+    </component>
+  </screen>
+</ui>
