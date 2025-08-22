@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Teacher Details - TutorMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1 id="name"></h1>
+    <p><strong>Subjects:</strong> <span id="subjects"></span></p>
+    <p><strong>Hourly Rate:</strong> $<span id="hourly_rate"></span></p>
+    <p><strong>Education:</strong> <span id="school"></span></p>
+    <p><strong>Qualifications:</strong> <span id="qualifications"></span></p>
+    <p><strong>Email:</strong> <span id="email"></span></p>
+    <div style="margin-top:20px;"><a class="back-link" href="student_dashboard.html">&larr; Back to Dashboard</a></div>
+  </div>
+<script>
+const params = new URLSearchParams(window.location.search);
+const name = params.get('name');
+fetch('teachers.json').then(r=>r.json()).then(data=>{
+  const t = data.find(x => x.name === name);
+  if(t){
+    document.getElementById('name').textContent = t.name;
+    document.getElementById('subjects').textContent = t.subjects;
+    document.getElementById('hourly_rate').textContent = t.hourly_rate;
+    document.getElementById('school').textContent = t.school;
+    document.getElementById('qualifications').textContent = t.qualifications;
+    document.getElementById('email').textContent = t.email;
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "test_teacher_1",
+    "subjects": "Maths,English,Spanish",
+    "hourly_rate": 23.0,
+    "qualifications": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a",
+    "school": "test_university",
+    "email": "bachereradrian@gmail.com"
+  },
+  {
+    "name": "test_teacher_2",
+    "subjects": "Chemistry,Physics,Computer Science",
+    "hourly_rate": 45.0,
+    "qualifications": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "school": "test_school",
+    "email": "2009193@newton.pe"
+  },
+  {
+    "name": "test_teacher_3",
+    "subjects": "English,Computer Science,Physics,Chemistry",
+    "hourly_rate": 75.0,
+    "qualifications": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a",
+    "school": "RANDOM_SCHOOL",
+    "email": "osera.official@gmail.com"
+  },
+  {
+    "name": "test_teacher_4",
+    "subjects": "English,Computer Science",
+    "hourly_rate": 47.0,
+    "qualifications": "Lorem ipsum dolor sit amet, consect",
+    "school": "RANDOM UNIVERSITY",
+    "email": "newstonnewspaper@gmail.com"
+  },
+  {
+    "name": "test_teacher_5",
+    "subjects": "English,Spanish,Maths",
+    "hourly_rate": 55.0,
+    "qualifications": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a",
+    "school": "UNIVERSITY COMPUTER ",
+    "email": "adrianbacherer07@gmail.com"
+  },
+  {
+    "name": "Video Tutor",
+    "subjects": "English,Chemistry,Computer Science",
+    "hourly_rate": 45.0,
+    "qualifications": "Here you can write the tutors details up to 200 characters before a warning pops up aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "school": "School name AA",
+    "email": "tutor_video!@gmail.com"
+  }
+]
