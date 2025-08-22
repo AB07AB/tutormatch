@@ -19,17 +19,19 @@
 <script>
 const params = new URLSearchParams(window.location.search);
 const name = params.get('name');
-fetch('teachers.json').then(r=>r.json()).then(data=>{
-  const t = data.find(x => x.name === name);
-  if(t){
-    document.getElementById('name').textContent = t.name;
-    document.getElementById('subjects').textContent = t.subjects;
-    document.getElementById('hourly_rate').textContent = t.hourly_rate;
-    document.getElementById('school').textContent = t.school;
-    document.getElementById('qualifications').textContent = t.qualifications;
-    document.getElementById('email').textContent = t.email;
-  }
-});
-</script>
+  fetch('teachers.json').then(r=>r.json()).then(data=>{
+    const t = data.find(x => x.name === name);
+    if(t){
+      document.getElementById('name').textContent = t.name;
+      document.getElementById('subjects').textContent = t.subjects;
+      document.getElementById('hourly_rate').textContent = t.hourly_rate;
+      document.getElementById('school').textContent = t.school;
+      document.getElementById('qualifications').textContent = t.qualifications;
+      document.getElementById('email').textContent = t.email;
+    } else {
+      document.querySelector('.container').innerHTML = '<p>Teacher not found.</p>';
+    }
+  });
+  </script>
 </body>
 </html>
