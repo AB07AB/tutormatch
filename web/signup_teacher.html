@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sign Up - TutorMatch</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Teacher Sign Up</h1>
+    <form id="signup-form">
+      <div><input type="text" id="name" placeholder="Name" required></div>
+      <div><input type="text" id="subjects" placeholder="Subjects (comma separated)" required></div>
+      <div><input type="number" id="hourly_rate" placeholder="Hourly Rate" required></div>
+      <div><input type="text" id="qualifications" placeholder="Qualifications"></div>
+      <div><input type="text" id="school" placeholder="School"></div>
+      <div><input type="email" id="email" placeholder="Email" required></div>
+      <div style="margin-top:10px;"><button type="submit">Submit</button></div>
+    </form>
+    <div style="margin-top:20px;"><a href="index.html">Back</a></div>
+  </div>
+<script>
+document.getElementById('signup-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  alert('Sign up submitted (demo only).');
+  this.reset();
+});
+</script>
+</body>
+</html>

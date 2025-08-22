@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Student Dashboard - TutorMatch</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Student Dashboard</h1>
+    <div>
+      <label>Filter by Subject
+        <select id="subject-filter"><option value="">All</option></select>
+      </label>
+      <label>Max Hourly Rate ($)
+        <input type="number" id="rate-filter">
+      </label>
+      <button id="apply-btn">Apply Filters</button>
+      <button id="reset-btn">Reset Filters</button>
+    </div>
+    <table id="teachers-table">
+      <thead>
+        <tr><th>Name</th><th>Subjects</th><th>Hourly Rate</th><th>Education</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div style="margin-top:20px;">
+      <a class="back-link" href="index.html">&larr; Back</a>
+    </div>
+  </div>
+<script>
+let teachers = [];
+const tableBody = document.querySelector('#teachers-table tbody');
+function renderTable(data){
+  tableBody.innerHTML = '';
+  data.forEach(t => {
+    const tr=document.createElement('tr');
+    tr.innerHTML = `<td><a href="teacher_details.html?name=${encodeURIComponent(t.name)}">${t.name}</a></td><td>${t.subjects}</td><td>${t.hourly_rate}</td><td>${t.school}</td>`;
+    tableBody.appendChild(tr);
+  });
+}
+fetch('teachers.json').then(r=>r.json()).then(data=>{
+  teachers=data;
+  const subjects = new Set();
+  data.forEach(t => t.subjects.split(',').forEach(s=>subjects.add(s.trim())));
+  const subjectSelect = document.getElementById('subject-filter');
+  subjects.forEach(s => {
+    const opt=document.createElement('option'); opt.value=s; opt.textContent=s; subjectSelect.appendChild(opt);
+  });
+  renderTable(teachers);
+});
+document.getElementById('apply-btn').addEventListener('click', ()=>{
+  const subject = document.getElementById('subject-filter').value;
+  const rate = parseFloat(document.getElementById('rate-filter').value);
+  let filtered=teachers;
+  if(subject) filtered = filtered.filter(t => t.subjects.includes(subject));
+  if(!isNaN(rate)) filtered = filtered.filter(t => t.hourly_rate <= rate);
+  renderTable(filtered);
+});
+document.getElementById('reset-btn').addEventListener('click', ()=>{
+  document.getElementById('subject-filter').value='';
+  document.getElementById('rate-filter').value='';
+  renderTable(teachers);
+});
+</script>
+</body>
+</html>
